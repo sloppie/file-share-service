@@ -1,0 +1,32 @@
+{
+  "name": "file-share-service",
+  "version": "1.0.0",
+  "description": "This service exposes folders in your computer to a device inthe same network as you",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devMode": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sloppie/file-share-service.git"
+  },
+  "keywords": [
+    "File",
+    "Share"
+  ],
+  "author": "sloppie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sloppie/file-share-service/issues"
+  },
+  "homepage": "https://github.com/sloppie/file-share-service#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  }
+}

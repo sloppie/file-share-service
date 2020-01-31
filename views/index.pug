@@ -1,0 +1,28 @@
+html
+    head
+        title=title
+        link(rel="stylesheet" href="css/index.css")
+        //- link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    body
+        .nav-bar
+            .brand-container
+                p File Sharing
+            .nav-icons
+        .cc
+            .container
+                p(class="list-label") Folders
+                .folders 
+                    each child in children.folders
+                        div(id=`${child.name}` class="folder" )
+                            .folder-container
+                                .folder-name-container
+                                    i(class="material-icons folder-icon") folder
+                                    p(class="folder-name")=child.name
+                                a(href=`http://${WIRELESS_IP}:3000/folder_view/${child.formattedPath}` class="folder-icon")
+                                    i(class="material-icons folder-icon") navigate_next
+
+                p(class="list-label") Files
+                    each child in children.files
+                        li=child.name
+
+        script(src="js/index.js" type="text/javascript")
