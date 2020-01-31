@@ -2,7 +2,7 @@ html
     head
         title=title
         link(rel="stylesheet" href="../css/folder_view.css")
-        //- link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
     body
         .nav-bar
             .brand-container
@@ -11,8 +11,13 @@ html
         .cc
             .container
                 .parent-folder-container
-                    each parent in parentFolders
-                        .parent-folder=parent
+                    each parent, index in parentFolders
+                        if parent !== "|"
+                            .parent-folder
+                                if index == 0
+                                    a(href=`http://${WIRELESS_IP}:3000/folder_view/${parent}`)=parent
+                                else 
+                                    a(href=`http://${WIRELESS_IP}:3000/folder_view/${route.split("|" + parentFolders[index + 1]? parentFolders[index + 1]: "/")[0]}`)=parent
                 p(class="list-label") Folders
                 .folders 
                     each child in children.folders

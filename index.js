@@ -21,7 +21,7 @@ const setIp = () => {
     } 
 } 
 
-setIp();
+setIp(); 
 
 const app = new express();
 
@@ -47,11 +47,13 @@ app.get("/folder_view/:file", (request, response) => {
     let {file} = request.params;
     let folderDir = `${HOME_DIR}/${file.replace(/\|/g, "/")}`;
     let title = path.basename(folderDir);
+    console.log(file); 
     response.render("folder_view", {
         WIRELESS_IP,
         title,
         children: getFolders(folderDir),
-        parentFolders: folderDir.replace(`${HOME_DIR}/`, "").split("/") 
+        parentFolders: folderDir.replace(`${HOME_DIR}/`, "").split("/"),
+        route: file
     });
 });
 
